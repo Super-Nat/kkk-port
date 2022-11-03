@@ -1,0 +1,53 @@
+.about {
+	width: 100%;
+	background-color: var(--cl-bg);
+	padding: clamp(1rem, 7.9vw, 15rem) 0;
+
+	h2 {
+		margin: 0;
+		line-height: 1.2;
+	}
+	p {
+		margin: clamp(1.5rem, 1.6vw, 3rem) 0;
+	}
+	&__inner {
+		display: grid;
+		grid-template-columns: 0.4fr 0.6fr;
+		align-items: center;
+	}
+	&__img {
+		position: relative;
+		width: 100%;
+		height: 26vw;
+	}
+	a {
+		font-family: var(--ff-title);
+		color: var(--cl-black);
+		position: absolute;
+		bottom: -6rem;
+		right: 0;
+		font-size: clamp(1rem, 0.9vw, 1.6rem);
+		text-transform: uppercase;
+		span {
+			position: relative;
+			width: clamp(2rem, 2.1vw, 4rem);
+			height: clamp(1rem, 1vw, 1.9rem);
+			display: inline-block;
+			vertical-align: middle;
+			img {
+				transition: all 0.3s;
+			}
+		}
+		&:hover {
+			span {
+				img {
+					margin-left: 1rem;
+				}
+			}
+		}
+	}
+	hr {
+		opacity: 0.5;
+		margin-top: 20rem;
+	}
+}

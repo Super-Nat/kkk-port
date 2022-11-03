@@ -1,0 +1,27 @@
+@font-face {
+	font-family: "Gigantic FS";
+	src: url("/fonts/GiganticFs.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+h2 {
+	font-family: var(--ff-title);
+	font-size: clamp(1rem, 5.3vw, 100rem);
+
+	&.special,
+	span {
+		-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+		-webkit-text-stroke-width: 0.1rem;
+		-webkit-text-stroke-color: var(--cl-black);
+		font-weight: var(--fw-regular);
+	}
+	span {
+		margin-right: 2rem;
+		display: inline-block;
+		&.white {
+			-webkit-text-stroke-color: #fff;
+		}
+	}
+}

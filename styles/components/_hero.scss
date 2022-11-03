@@ -1,0 +1,37 @@
+.hero {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	&__bg {
+		width: 100%;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		z-index: 0-1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__content {
+		z-index: 1;
+		text-align: center;
+		text-transform: uppercase;
+		font-family: var(--ff-title);
+		letter-spacing: 2px;
+		h1 {
+			font-size: clamp(1rem, 6.3vw, 120rem);
+			-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+			-webkit-text-stroke-width: 0.1rem;
+			-webkit-text-stroke-color: var(--cl-black);
+			font-weight: var(--fw-regular);
+		}
+		h2 {
+			font-size: clamp(1rem, 5.3vw, 100rem);
+		}
+	}
+	&__scroll {
+		position: absolute;
+		bottom: 3%;
+		font-size: clamp(1rem, 0.9vw, 1.6rem);
+	}
+}
