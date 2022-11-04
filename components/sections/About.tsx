@@ -39,6 +39,7 @@ const About: React.FC = () => {
 				</div>
 				<hr />
 			</div>
+			<div className="noise"></div>
 		</section>
 	);
 };

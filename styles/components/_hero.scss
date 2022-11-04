@@ -3,6 +3,8 @@
 	height: 100vh;
 	overflow: hidden;
 	transition: all 0.1s;
+	position: relative;
+	z-index: 4;
 	video {
 		object-fit: cover;
 		position: absolute;
@@ -51,7 +53,8 @@
 		position: absolute;
 		bottom: 3%;
 		font-size: clamp(1rem, 0.9vw, 1.6rem);
-		font-family: var(--ff-title);
+		font-weight: var(--fw-medium);
+		text-transform: uppercase;
 		z-index: 1;
 	}
 }

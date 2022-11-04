@@ -15,4 +15,10 @@ body {
 	font-weight: var(--fw-regular);
 	line-height: 1.4;
 	color: var(--cl-black);
+	background-color: var(--cl-bg);
+}
+
+section {
+	z-index: 5;
+	position: relative;
 }

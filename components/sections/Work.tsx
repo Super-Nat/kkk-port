@@ -48,6 +48,7 @@ const Work: React.FC = () => {
 					</div>
 				</div>
 			</div>
+			<div className="noise"></div>
 		</section>
 	);
 };
