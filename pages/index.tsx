@@ -22,6 +22,7 @@ const Home: NextPage = () => {
 
 					<About />
 					<Work />
+					<div className="noise"></div>
 				</main>
 
 				<Footer />
