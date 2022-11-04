@@ -23,7 +23,7 @@ const Header: React.FC = () => {
 		<motion.header
 			className="header"
 			style={{
-				backgroundColor: backgroundColor,
+				// backgroundColor: backgroundColor,
 				top: scroll > 100 ? "-10%" : "0",
 				opacity: scroll > 100 ? 0 : 1,
 			}}
