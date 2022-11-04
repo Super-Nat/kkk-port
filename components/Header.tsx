@@ -10,6 +10,7 @@ const Header: React.FC = () => {
 		["transparent", "#fafafc"]
 	);
 	const padding = useTransform(scrollY, [0, 500], ["2.5rem 0", "1.5rem 0"]);
+
 	return (
 		<motion.header
 			className="header"
