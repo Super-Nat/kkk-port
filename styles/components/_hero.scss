@@ -3,6 +3,13 @@
 	height: 100vh;
 	overflow: hidden;
 	transition: all 0.1s;
+	video {
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
 	&__bg {
 		width: 100%;
 		height: 100vh;

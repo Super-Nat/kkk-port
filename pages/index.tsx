@@ -16,7 +16,7 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header />
-			<ScrollerMotion scale={3}>
+			<ScrollerMotion>
 				<main>
 					<Hero />
 
