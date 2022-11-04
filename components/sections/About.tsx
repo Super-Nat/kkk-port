@@ -27,7 +27,7 @@ const About: React.FC = () => {
 					</div>
 					<div className="about__side">
 						<div className="about__img">
-							<Image src="/images/about.jpg" fill alt="about" />
+							<Image src="/images/about.png" fill alt="about" />
 							<Link href="#">
 								Check out my resume{" "}
 								<span>
