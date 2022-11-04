@@ -52,5 +52,6 @@
 		bottom: 3%;
 		font-size: clamp(1rem, 0.9vw, 1.6rem);
 		font-family: var(--ff-title);
+		z-index: 1;
 	}
 }
