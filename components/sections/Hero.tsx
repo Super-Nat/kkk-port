@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
 		<motion.section className="hero" style={{ height: animHeight }}>
 			<div className="hero__bg">
 				<Image src="/images/hero-bg.jpg" fill alt="hero-bg" />
-				<motion.div className="hero__content" style={{ y: y }}>
+				<motion.div className="hero__content">
 					<h1>Hey!</h1>
 					<h2>
 						I’m KWAN
