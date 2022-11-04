@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Header: React.FC = () => {
 	const { scrollY } = useScroll();
@@ -10,11 +11,22 @@ const Header: React.FC = () => {
 		["transparent", "#fafafc"]
 	);
 	const padding = useTransform(scrollY, [0, 500], ["2.5rem 0", "1.5rem 0"]);
+	const [scroll, setScroll] = useState(0);
+
+	useEffect(() => {
+		window.addEventListener("scroll", (e) => {
+			setScroll(window.scrollY);
+		});
+	}, []);
 
 	return (
 		<motion.header
 			className="header"
-			style={{ backgroundColor: backgroundColor }}
+			style={{
+				backgroundColor: backgroundColor,
+				top: scroll > 100 ? "-10%" : "0",
+				opacity: scroll > 100 ? 0 : 1,
+			}}
 		>
 			<motion.div className="header__wrapper" style={{ padding: padding }}>
 				<div className="header__logo">
