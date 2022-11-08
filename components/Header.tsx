@@ -1,7 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { smooth } from "popmotion";
+import { useEffect, useRef, useState } from "react";
+import useScrollDirection from "../hooks/useScrollDirection";
 
 const Header: React.FC = () => {
 	const { scrollY } = useScroll();
@@ -12,6 +14,7 @@ const Header: React.FC = () => {
 	);
 	const padding = useTransform(scrollY, [0, 500], ["2.5rem 0", "1.5rem 0"]);
 	const [scroll, setScroll] = useState(0);
+	const scrollDirection = useScrollDirection();
 
 	useEffect(() => {
 		window.addEventListener("scroll", (e) => {
@@ -23,9 +26,9 @@ const Header: React.FC = () => {
 		<motion.header
 			className="header"
 			style={{
-				// backgroundColor: backgroundColor,
-				top: scroll > 100 ? "-10%" : "0",
-				opacity: scroll > 100 ? 0 : 1,
+				backgroundColor: scrollDirection === "up" ? backgroundColor : "",
+				top: scrollDirection === "down" ? "-10%" : "0",
+				opacity: scrollDirection === "down" ? 0 : 1,
 			}}
 		>
 			<motion.div className="header__wrapper" style={{ padding: padding }}>
@@ -36,14 +39,33 @@ const Header: React.FC = () => {
 				</div>
 				<div className="header__nav">
 					<ul>
-						<li className="active">
-							<Link href="">About me</Link>
+						<li
+							className="active"
+							onClick={() => {
+								window.scrollTo(
+									0,
+									document.getElementById("about").offsetTop - 300
+								);
+							}}
+						>
+							About me
 						</li>
-						<li>
-							<Link href="">works</Link>
+						<li
+							onClick={() => {
+								window.scrollTo(
+									0,
+									document.getElementById("work").offsetTop - 800
+								);
+							}}
+						>
+							works
 						</li>
-						<li>
-							<Link href="">Contact</Link>
+						<li
+							onClick={() => {
+								window.scrollTo(0, document.body.scrollHeight);
+							}}
+						>
+							Contact
 						</li>
 					</ul>
 				</div>

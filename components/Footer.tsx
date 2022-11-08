@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
 	return (
-		<footer className="footer">
+		<footer className="footer" id="contact">
 			<div className="footer__main">
 				<div className="wrapper">
 					<h2>
@@ -28,21 +28,24 @@ const Footer: React.FC = () => {
 					</span>
 					<ul>
 						<li>
-							<Link href="#">
-								LINKEDIN{" "}
-								<span>
+							<Link
+								target="_blank"
+								href="https://www.linkedin.com/in/kunnapat-k/"
+							>
+								<span className="link">LINKEDIN</span>
+								<span className="arrow">
 									<Image src="/images/arrow-next-w.svg" fill alt="link" />
 								</span>
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<Link href="#">
 								INSTAGRAM{" "}
 								<span>
 									<Image src="/images/arrow-next-w.svg" fill alt="link" />
 								</span>
 							</Link>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			</div>

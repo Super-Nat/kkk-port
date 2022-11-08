@@ -31,16 +31,17 @@
 
 			li {
 				opacity: 0.5;
+
+				cursor: pointer;
 				&.active {
 					font-weight: var(--fw-medium);
 					opacity: 1;
 				}
-			}
-
-			a {
-				text-transform: uppercase;
-				text-decoration: none;
-				color: inherit;
+				a {
+					text-transform: uppercase;
+					text-decoration: none;
+					color: inherit;
+				}
 			}
 		}
 	}

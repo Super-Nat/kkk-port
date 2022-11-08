@@ -56,16 +56,22 @@
 				position: relative;
 				font-family: var(--ff-title);
 				span {
-					position: relative;
-					width: clamp(2rem, 2.1vw, 4rem);
-					height: clamp(1rem, 1vw, 1.9rem);
-					display: inline-block;
-					vertical-align: middle;
-					margin-left: 1rem;
-					img {
-						transition: all 0.3s;
+					&.link {
+						text-decoration: underline;
+					}
+					&.arrow {
+						position: relative;
+						width: clamp(2rem, 2.1vw, 4rem);
+						height: clamp(1rem, 1vw, 1.9rem);
+						display: inline-block;
+						vertical-align: middle;
+						margin-left: 1rem;
+						img {
+							transition: all 0.3s;
+						}
 					}
 				}
+
 				&:hover {
 					span {
 						img {

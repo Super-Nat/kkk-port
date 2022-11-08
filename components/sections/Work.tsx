@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Work: React.FC = () => {
 	return (
-		<section className="work">
+		<section className="work" id="work">
 			<div className="wrapper">
 				<h2>
 					<span>Selected</span>

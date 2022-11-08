@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const About: React.FC = () => {
 	return (
-		<section className="about">
+		<section className="about" id="about">
 			<div className="wrapper">
 				<div className="about__inner">
 					<div className="about__side">
@@ -28,7 +28,10 @@ const About: React.FC = () => {
 					<div className="about__side">
 						<div className="about__img">
 							<Image src="/images/about.png" fill alt="about" />
-							<Link href="#">
+							<Link
+								target="_blank"
+								href="https://drive.google.com/file/d/1fyyXsGHP5MXgxBeCf8eJw-Y5CWWrvKY8/view"
+							>
 								Check out my resume{" "}
 								<span>
 									<Image src="/images/arrow-next.svg" fill alt="about" />
