@@ -23,7 +23,6 @@ const Home: NextPage = () => {
 			<ScrollerMotion>
 				<main>
 					<Hero />
-
 					<About />
 					<Work />
 				</main>

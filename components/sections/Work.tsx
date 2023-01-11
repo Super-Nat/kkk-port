@@ -11,7 +11,7 @@ const Work: React.FC = () => {
 				</h2>
 				<div className="work__inner">
 					<div className="work__item">
-						<Link href="">
+						<Link href="works/test">
 							<div className="work__img">
 								<Image src="/images/work1.jpg" fill alt="test" />
 							</div>
@@ -20,7 +20,7 @@ const Work: React.FC = () => {
 						</Link>
 					</div>
 					<div className="work__item">
-						<Link href="">
+						<Link href="works/test">
 							<div className="work__img">
 								<Image src="/images/work1.jpg" fill alt="test" />
 							</div>
@@ -29,7 +29,7 @@ const Work: React.FC = () => {
 						</Link>
 					</div>
 					<div className="work__item">
-						<Link href="">
+						<Link href="works/test">
 							<div className="work__img">
 								<Image src="/images/work1.jpg" fill alt="test" />
 							</div>
@@ -38,7 +38,7 @@ const Work: React.FC = () => {
 						</Link>
 					</div>
 					<div className="work__item">
-						<Link href="">
+						<Link href="works/test">
 							<div className="work__img">
 								<Image src="/images/work1.jpg" fill alt="test" />
 							</div>

@@ -11,14 +11,14 @@ const Hero: React.FC = () => {
 		<motion.section className="hero" style={{ height: animHeight }}>
 			<div className="hero__bg">
 				<video src="/videos/video-banner.mp4" autoPlay loop muted></video>
-				<motion.div className="hero__content">
+				<div className="hero__content">
 					<h1>Hey!</h1>
 					<h2>
 						I’m KWAN
 						<br />A UX/UI Designer
 						<br />.
 					</h2>
-				</motion.div>
+				</div>
 				<div className="hero__scroll">Scroll to explore</div>
 			</div>
 		</motion.section>

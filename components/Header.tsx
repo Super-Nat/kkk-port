@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { smooth } from "popmotion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useScrollDirection from "../hooks/useScrollDirection";
+import MenuList from "./menuList";
 
-const Header: React.FC = () => {
+const Header = () => {
 	const { scrollY } = useScroll();
 	const backgroundColor = useTransform(
 		scrollY,
@@ -21,13 +21,12 @@ const Header: React.FC = () => {
 			setScroll(window.scrollY);
 		});
 	}, []);
-
 	return (
 		<motion.header
 			className="header"
 			style={{
-				backgroundColor: scrollDirection === "up" ? backgroundColor : "",
 				top: scrollDirection === "down" ? "-10%" : "0",
+				backgroundColor: backgroundColor,
 				opacity: scrollDirection === "down" ? 0 : 1,
 			}}
 		>
@@ -39,34 +38,9 @@ const Header: React.FC = () => {
 				</div>
 				<div className="header__nav">
 					<ul>
-						<li
-							className="active"
-							onClick={() => {
-								window.scrollTo(
-									0,
-									document.getElementById("about").offsetTop - 300
-								);
-							}}
-						>
-							About me
-						</li>
-						<li
-							onClick={() => {
-								window.scrollTo(
-									0,
-									document.getElementById("work").offsetTop - 800
-								);
-							}}
-						>
-							works
-						</li>
-						<li
-							onClick={() => {
-								window.scrollTo(0, document.body.scrollHeight);
-							}}
-						>
-							Contact
-						</li>
+						<MenuList sectionPage="about">About me</MenuList>
+						<MenuList sectionPage="work">Work</MenuList>
+						<MenuList>About me</MenuList>
 					</ul>
 				</div>
 			</motion.div>
