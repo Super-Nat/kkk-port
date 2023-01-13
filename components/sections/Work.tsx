@@ -14,7 +14,7 @@ const Work = (Props: any) => {
 				<div className="work__inner">
 					{Props.work.map((work: any) => (
 						<div className="work__item" key={work._id}>
-							<Link href="works/test">
+							<Link href={`works/${work.slug.current}`}>
 								<div className="work__img">
 									<Image src={urlFor(work.gallery[0]).url()} fill alt="test" />
 								</div>

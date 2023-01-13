@@ -38,9 +38,9 @@ const Header = () => {
 				</div>
 				<div className="header__nav">
 					<ul>
-						<MenuList sectionPage="about">About me</MenuList>
-						<MenuList sectionPage="work">Work</MenuList>
-						<MenuList>About me</MenuList>
+						<MenuList sectionPage="about">ABOUT ME</MenuList>
+						<MenuList sectionPage="work">WORKS</MenuList>
+						<MenuList>CONTACT</MenuList>
 					</ul>
 				</div>
 			</motion.div>
