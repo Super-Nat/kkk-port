@@ -1,15 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useQuery } from "@tanstack/react-query";
+import { urlFor } from "../../lib/client";
 
-const fetchUsers = async () => {
-	const res = await fetch("http://localhost:3000/api/works");
-	return res.json();
-};
-const Work = () => {
-	const { data, isLoading } = useQuery(["work"], fetchUsers);
-
+const Work = (Props: any) => {
 	return (
 		<section className="work" id="work">
 			<div className="wrapper">
@@ -18,13 +12,13 @@ const Work = () => {
 					Works.
 				</h2>
 				<div className="work__inner">
-					{data?.map((work: any) => (
-						<div className="work__item" key={work.id}>
+					{Props.work.map((work: any) => (
+						<div className="work__item" key={work._id}>
 							<Link href="works/test">
 								<div className="work__img">
-									<Image src="/images/work1.jpg" fill alt="test" />
+									<Image src={urlFor(work.gallery[0]).url()} fill alt="test" />
 								</div>
-								<div className="work__cat">{work.title}</div>
+								<div className="work__cat">{work.type}</div>
 								<div className="work__title">{work.title}</div>
 							</Link>
 						</div>

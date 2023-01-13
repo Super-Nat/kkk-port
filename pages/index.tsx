@@ -7,10 +7,11 @@ import Header from "../components/Header";
 import About from "../components/sections/About";
 import Hero from "../components/sections/Hero";
 import Work from "../components/sections/Work";
+import { loadData } from "./api/works";
 
 const queryClient = new QueryClient();
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ initialWorks }: any) => {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Head>
@@ -27,7 +28,7 @@ const Home: NextPage = () => {
 				<main>
 					<Hero />
 					<About />
-					<Work />
+					<Work work={initialWorks} />
 				</main>
 
 				<Footer />
@@ -37,3 +38,13 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getServerSideProps() {
+	const { works } = await loadData(0, 4);
+
+	return {
+		props: {
+			initialWorks: works,
+		},
+	};
+}
