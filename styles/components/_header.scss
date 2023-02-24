@@ -31,11 +31,22 @@
 
 			li {
 				opacity: 0.5;
-
+				position: relative;
 				cursor: pointer;
 				&.active {
 					font-weight: var(--fw-medium);
 					opacity: 1;
+
+					&:after {
+						content: "";
+						width: 0.8rem;
+						height: 0.8rem;
+						background-image: url("/images/work-star.png");
+						background-size: cover;
+						position: absolute;
+						top: 0rem;
+						right: -0.05;
+					}
 				}
 				a {
 					text-transform: uppercase;

@@ -1,27 +1,25 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { urlFor } from "../../lib/client";
+import { useInView } from "react-hook-inview";
+import WorkItem from "../WorkItem";
 
-const Work = (Props: any) => {
+const Work = (props: any) => {
+	const [ref] = useInView({
+		onEnter: () => props.setActive("work"),
+	});
+
 	return (
-		<section className="work" id="work">
+		<section ref={ref} className="work" id="work">
 			<div className="wrapper">
 				<h2>
 					<span>Selected</span>
 					Works.
 				</h2>
 				<div className="work__inner">
-					{Props.work.map((work: any) => (
-						<div className="work__item" key={work._id}>
-							<Link href={`works/${work.slug.current}`}>
-								<div className="work__img">
-									<Image src={urlFor(work.gallery[0]).url()} fill alt="test" />
-								</div>
-								<div className="work__cat">{work.type}</div>
-								<div className="work__title">{work.title}</div>
-							</Link>
-						</div>
+					{props.work.map((work: any) => (
+						<WorkItem
+							set={props.setActive}
+							work={work}
+							key={work._id}
+						></WorkItem>
 					))}
 				</div>
 			</div>

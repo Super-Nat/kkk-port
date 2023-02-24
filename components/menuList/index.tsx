@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 interface Props {
 	children?: string;
 	sectionPage?: string;
+	active: string;
 }
 
-const MenuList = ({ children, sectionPage }: Props) => {
+const MenuList = (props: Props) => {
 	const handleSectionSlide = (sectionId?: string) => {
 		const section: any = sectionId && document.getElementById(sectionId);
 
@@ -15,7 +16,14 @@ const MenuList = ({ children, sectionPage }: Props) => {
 			window.scrollTo(0, document.body.scrollHeight);
 		}
 	};
-	return <li onClick={() => handleSectionSlide(sectionPage)}>{children}</li>;
+	return (
+		<li
+			className={props.active === props.sectionPage ? "active" : ""}
+			onClick={() => handleSectionSlide(props.sectionPage)}
+		>
+			{props.children}
+		</li>
+	);
 };
 
 export default MenuList;

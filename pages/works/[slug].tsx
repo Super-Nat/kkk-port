@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import styled from "styled-components";
 import { client, urlFor } from "../../lib/client";
+import { loadData } from "../api/works";
 
 const WorkInner = styled.div`
 	width: 100%;
@@ -12,7 +12,7 @@ const WorkInner = styled.div`
 
 const WorkContent = styled.div`
 	width: 100%;
-	height: 90vh;
+	height: 70vh;
 	display: grid;
 	grid-template-columns: 0.45fr 0.55fr;
 	color: #fff;
@@ -43,9 +43,26 @@ const WorkSubTItle = styled.h2`
 	margin-bottom: 2.6rem;
 `;
 
+const WorkProjectName = styled(WorkSubTItle)`
+	font-size: clamp(1rem, 5.3vw, 100rem);
+	font-weight: var(--fw-regular);
+	margin-bottom: 2.6rem;
+	position: relative;
+	&:after {
+		content: "";
+		width: 7.2rem;
+		height: 7.2rem;
+		background-image: url("/images/work-star.png");
+		background-size: cover;
+		position: absolute;
+		top: 0rem;
+		right: -10rem;
+	}
+`;
+
 const WorkText = styled.p`
-	line-height: 3.4rem;
-	font-size: clamp(1.2rem, 1.2vw, 2rem);
+	line-height: 3rem;
+	font-size: clamp(1.2rem, 1.2vw, 1.4rem);
 `;
 
 const WorkToolInner = styled.div`
@@ -103,7 +120,32 @@ const WorkImages = styled.div`
 	height: 35vw;
 `;
 
-const Work = ({ work, tools }: any) => {
+const NextProject = styled.div`
+	position: relative;
+	width: 100%;
+	display: flex;
+
+	a {
+		display: flex;
+		gap: 2rem;
+		text-decoration: none;
+		color: #fff;
+		width: 100%;
+		justify-content: space-between;
+	}
+`;
+
+const NextProjectTitle = styled.div`
+	display: flex;
+	gap: 2rem;
+`;
+
+const NextNextArrow = styled.div`
+	position: relative;
+	width: 20rem;
+`;
+
+const Work = ({ work, tools, nextWork }: any) => {
 	// console.log(tools);
 	return (
 		<>
@@ -157,9 +199,24 @@ const Work = ({ work, tools }: any) => {
 					</WorkContent>
 					<footer
 						className="footer"
-						style={{ height: "10vh", display: "flex", alignItems: "center" }}
+						style={{ height: "30vh", display: "flex", alignItems: "center" }}
 					>
 						<div className="wrapper">
+							<NextProject>
+								<Link href={`${nextWork.slug.current}`}>
+									<NextProjectTitle>
+										<WorkTItle>Next</WorkTItle>
+										<WorkProjectName>{nextWork.title}</WorkProjectName>
+									</NextProjectTitle>
+									<NextNextArrow>
+										<Image
+											src="/images/arrow-next-w.svg"
+											fill
+											alt="next arrow"
+										/>
+									</NextNextArrow>
+								</Link>
+							</NextProject>
 							<div className="footer__sup" style={{ padding: 0 }}>
 								<span>
 									©Copyright 2022 Kwan. All rights reserved. | Developed by{" "}
@@ -208,12 +265,16 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }: any) {
 	const query = `*[_type == "work" && slug.current == '${slug}']`;
 	const toolQuery = `*[_type == "work" && slug.current == '${slug}']{tools[]->}`;
+	const query2 = `*[_type == "work" && slug.current != '${slug}']`;
 
 	const work = await client.fetch(query);
 	const tools = await client.fetch(toolQuery);
+	const works = await client.fetch(query2);
+	const random = Math.floor(Math.random() * (works.length - 1) + 1);
+
 	return {
 		// Passed to the page component as props
-		props: { work: work[0], tools: tools[0].tools },
+		props: { work: work[0], tools: tools[0].tools, nextWork: works[random] },
 	};
 }
 

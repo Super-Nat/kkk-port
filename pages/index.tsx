@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
 import { ScrollerMotion } from "scroller-motion";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -9,6 +10,7 @@ import Work from "../components/sections/Work";
 import { loadData } from "./api/works";
 
 const Home: NextPage = ({ initialWorks }: any) => {
+	const [active, setActive] = useState<string>("");
 	return (
 		<>
 			<Head>
@@ -20,15 +22,15 @@ const Home: NextPage = ({ initialWorks }: any) => {
 				></meta>
 				<link rel="icon" href="/favicon.png" />
 			</Head>
-			<Header />
+			<Header active={active} />
 			<ScrollerMotion>
 				<main>
 					<Hero />
-					<About />
-					<Work work={initialWorks} />
+					<About setActive={setActive} />
+					<Work work={initialWorks} setActive={setActive} />
 				</main>
 
-				<Footer />
+				<Footer setActive={setActive} />
 			</ScrollerMotion>
 		</>
 	);

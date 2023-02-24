@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 import useScrollDirection from "../hooks/useScrollDirection";
 import MenuList from "./menuList";
 
-const Header = () => {
+interface Props {
+	active: string;
+}
+
+const Header = ({ active }: Props) => {
 	const { scrollY } = useScroll();
 	const backgroundColor = useTransform(
 		scrollY,
@@ -38,9 +42,15 @@ const Header = () => {
 				</div>
 				<div className="header__nav">
 					<ul>
-						<MenuList sectionPage="about">ABOUT ME</MenuList>
-						<MenuList sectionPage="work">WORKS</MenuList>
-						<MenuList>CONTACT</MenuList>
+						<MenuList active={active} sectionPage="about">
+							ABOUT ME
+						</MenuList>
+						<MenuList active={active} sectionPage="work">
+							WORKS
+						</MenuList>
+						<MenuList active={active} sectionPage="contact">
+							CONTACT
+						</MenuList>
 					</ul>
 				</div>
 			</motion.div>

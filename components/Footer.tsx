@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useInView } from "react-hook-inview";
 
-const Footer: React.FC = () => {
+const Footer = (props: any) => {
+	const [ref] = useInView({
+		// threshold: 0.5,
+		onEnter: () => props.setActive("contact"),
+	});
 	return (
-		<footer className="footer" id="contact">
+		<footer ref={ref} className="footer" id="contact">
 			<div className="footer__main">
 				<div className="wrapper">
 					<h2>

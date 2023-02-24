@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useInView } from "react-hook-inview";
 
-const About: React.FC = () => {
+const About = (Props: any) => {
+	const [ref] = useInView({
+		onEnter: () => Props.setActive("about"),
+	});
 	return (
-		<section className="about" id="about">
+		<section ref={ref} className="about" id="about">
 			<div className="wrapper">
 				<div className="about__inner">
 					<div className="about__side">
