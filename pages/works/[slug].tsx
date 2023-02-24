@@ -4,6 +4,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { client, urlFor } from "../../lib/client";
 import { loadData } from "../api/works";
+import Header from "../../components/Header";
 
 const WorkInner = styled.div`
 	width: 100%;
@@ -190,6 +191,22 @@ const Work = ({ work, tools, nextWork }: any) => {
 							</WorkToolInner>
 						</WorkDetail>
 						<WorkGallery>
+							{/* <header className="header">
+								<div className="header__wrapper">
+									<div className="header__logo">
+										<Link href="/">
+											<Image src="/images/logo.svg" fill alt="logo" />
+										</Link>
+									</div>
+									<div className="header__nav">
+										<ul>
+											<li>ABOUT ME</li>
+											<li>WORKS</li>
+											<li>CONTACT</li>
+										</ul>
+									</div>
+								</div>
+							</header> */}
 							{work.gallery.map((image: any) => (
 								<WorkImages key={image.id}>
 									<Image src={urlFor(image).url()} fill alt="trello-icon" />

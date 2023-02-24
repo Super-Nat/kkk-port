@@ -6,7 +6,7 @@ import useScrollDirection from "../hooks/useScrollDirection";
 import MenuList from "./menuList";
 
 interface Props {
-	active: string;
+	active?: string;
 }
 
 const Header = ({ active }: Props) => {

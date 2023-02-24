@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 interface Props {
 	children?: string;
 	sectionPage?: string;
-	active: string;
+	active?: string;
 }
 
 const MenuList = (props: Props) => {
